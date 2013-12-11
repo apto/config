@@ -1,4 +1,5 @@
 var Path = require('path');
+var uuid64 = require('uuid64');
 
 if (!process.env.NODE_CONFIG_DIR) {
   process.env.NODE_CONFIG_DIR = Path.join(__dirname, 'server/config/env');
@@ -21,4 +22,11 @@ var envRegEx = /-([^-]+)-env/;
 var match = envRegEx.exec(ebEnv.name);
 process.env.NODE_ENV = match[1];
 
-module.exports = require('config');
+var config = require('config');
+
+config.env = {
+  name: ebEnv.name,
+  app: ebEnv.app
+};
+
+module.exports = config;

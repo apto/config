@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main": "./server",
   "dependencies": {
-    "config": "~0.4.33"
+    "config": "~0.4.33",
+    "uuid64": "0.0.1"
   }
 }
