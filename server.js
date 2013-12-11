@@ -2,7 +2,7 @@ var Path = require('path');
 var uuid64 = require('uuid64');
 
 if (!process.env.NODE_CONFIG_DIR) {
-  process.env.NODE_CONFIG_DIR = Path.join(__dirname, 'server/config/env');
+  process.env.NODE_CONFIG_DIR = Path.join(__dirname, '../../server/config/env');
 }
 
 var ebEnv = require('eb-env');
