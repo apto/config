@@ -21,12 +21,14 @@ if (!ebEnv.name) {
 
 var envRegEx = /-([^-]+)-env/;
 var match = envRegEx.exec(ebEnv.name);
-process.env.NODE_ENV = match[1];
+var envType = match[1] || 'local';
+process.env.NODE_ENV = envType;
 
 var config = require('config');
 
 config.env = {
   name: ebEnv.name,
+  type: envType,
   app: ebEnv.app || {
     sourceId: uuid64()
   }
