@@ -29,9 +29,10 @@ var config = require('config');
 config.env = {
   name: ebEnv.name,
   type: envType,
-  app: ebEnv.app || {
-    sourceId: uuid64()
-  }
+};
+
+config.app = ebEnv.app || {
+  sourceId: uuid64()
 };
 
 module.exports = config;
