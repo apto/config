@@ -11,7 +11,8 @@ if (!ebEnv.name) {
   var packageFile = Path.join(__dirname, '../../package.json');
   var packageName = 'unknown';
   try {
-    packageName = packageFile.name;
+    var pkg = require(packageFile);
+    packageName = pkg.name;
   } catch (e) {
     // will use default name
   }
@@ -26,7 +27,9 @@ var config = require('config');
 
 config.env = {
   name: ebEnv.name,
-  app: ebEnv.app
+  app: ebEnv.app || {
+    sourceId: uuid64()
+  }
 };
 
 module.exports = config;
